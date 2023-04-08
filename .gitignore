@@ -1,0 +1,4 @@
+*.ipynb
+.ipynb_checkpoints/
+__pycache__
+rsr_stats.db
