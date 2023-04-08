@@ -27,21 +27,21 @@ class Person(Base):
 class Score(Base):
     __tablename__="score"
     int_id = Column(Integer, autoincrement=True, primary_key=True)
-    when = Column(Date)
+    score_date = Column(Date)
     pid = mapped_column(ForeignKey("person.pid"))
     rnd_tot = Column(Integer)
     coop_tot = Column(Integer)
     player_score = relationship("Person", back_populates="scored_hist")
     
-    def __init__(self, when,pid,r_tot,c_tot):
+    def __init__(self, score_date,pid,r_tot,c_tot):
         """"""
-        self.when=when
+        self.score_date=score_date
         self.pid=pid
         self.rnd_tot=r_tot
         self.coop_tot = c_tot
         
     def __str__(self):
-        return f"When: {self.when.isoformat()},RndTot:{self.rnd_tot},CoopTot:{self.coop_tot}"
+        return f"When: {self.score_date.isoformat()},RndTot:{self.rnd_tot},CoopTot:{self.coop_tot}"
 
     
     

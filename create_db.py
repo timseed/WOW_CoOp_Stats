@@ -14,10 +14,10 @@ def create_db():
     from sqlalchemy.orm import declarative_base
 
     # Need to model to be understood
-    from rsr import Person, Score, Base
+    from rsr import Person, Score, Base, engine
 
     # engine = create_engine('sqlite:///:memory:', echo=True)
-    engine = create_engine("sqlite:///rsr_stats.db",echo=True)
+    #engine = create_engine("sqlite:///rsr_stats.db",echo=True)
     
     # Create db now
     Base.metadata.create_all(engine)

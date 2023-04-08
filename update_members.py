@@ -1,11 +1,10 @@
 from sqlalchemy import Table, select, Column,Date, String, ForeignKey, Integer, create_engine
 from sqlalchemy.orm import sessionmaker
-from rsr import Person, Score, Base
+from rsr import Person, Score, Base, engine
 from stats import  get_clan_members
 import pandas as pd
 
 
-engine=create_engine("sqlite:///rsr_stats.db")
 
 def use_db():
     # Import the DB Models to be created.
@@ -23,6 +22,8 @@ for p in rsr_clan[['pid','Player']].values.tolist():
         #Record does not exist
         sess.add(Person(p[0],p[1]))
         print(f"Adding {p}")
+    else:
+        print(f"Already exists {p}")
 sess.commit()
 
 # Sanity check see what is there

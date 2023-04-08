@@ -44,7 +44,7 @@ CREATE TABLE person (
 );
 CREATE TABLE score (
 	int_id INTEGER NOT NULL,
-	"when" DATE,
+	score_date DATE,
 	pid INTEGER,
 	rnd_tot INTEGER,
 	coop_tot INTEGER,
@@ -108,7 +108,7 @@ These data values are now added for the user **ww1** for the date/time that this
 We want data for player **ww1** who has an pid of 8023920514.
 
 ```sql
-select p.name,s."when",s.rnd_tot,s.coop_tot from person p, score s
+select p.name,s.score_date,s.rnd_tot,s.coop_tot from person p, score s
    where s.pid=p.pid and
    p.pid=8023920514;
 ```
